@@ -6,9 +6,14 @@ package com.varunl.concurrency;
  * using some sychronization techniques.
  */
 public class Example1 {
-    private static int count = 0;
+    private int count = 0;
 
     public static void main(String[] args) throws InterruptedException {
+        Example1 ex = new Example1();
+        ex.runExample();
+    }
+
+    public void runExample() throws InterruptedException {
         // Create 2 threads who update the value of the counter.
         Thread thread1 = new Thread(new Runnable() {
             public void run() {

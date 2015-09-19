@@ -7,9 +7,14 @@ import java.util.concurrent.atomic.AtomicInteger;
  * atomic.
  */
 public class Example2 {
-    private static AtomicInteger count = new AtomicInteger(0);
+    private AtomicInteger count = new AtomicInteger(0);
 
     public static void main(String[] args) throws InterruptedException {
+        Example2 ex = new Example2();
+        ex.runExample();
+    }
+
+    public void runExample() throws InterruptedException {
         // Create 2 threads who update the value of the counter.
         Thread thread1 = new Thread(new Runnable() {
             public void run() {
