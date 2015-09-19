@@ -7,10 +7,15 @@ package com.varunl.concurrency;
  * Let's see how we can solve this problem by using Java's locking mechanism.
  */
 public class Example3 {
-    private static int count = 0;
-    private static Object lock = new Object();
+    private int count = 0;
+    private final Object lock = new Object();
 
     public static void main(String[] args) throws InterruptedException {
+        Example3 ex = new Example3();
+        ex.runExample();
+    }
+
+    public void runExample() throws InterruptedException {
         Thread thread1 = new Thread(new Runnable() {
             public void run() {
                 for (int i = 0; i < 10000; i++) {
