@@ -24,6 +24,7 @@ public class Example7 {
             public void run() {
                 for (int i = 0; i < 1000; i++) {
                     lock.lock();
+                    // Wait till the variable is not odd.
                     while (count % 2 == 0) {
                         try {
                             condition.await();
@@ -43,6 +44,7 @@ public class Example7 {
             public void run() {
                 for (int i = 0; i < 1000; i++) {
                     lock.lock();
+                    // Wait till the condition is not even.
                     while (count % 2 == 1) {
                         try {
                             condition.await();
